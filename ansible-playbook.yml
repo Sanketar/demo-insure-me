@@ -15,26 +15,6 @@
     command : sudo systemctl start docker
     become : yes
     become_user : root
-    
-  - name : Removing running container
-    command  : sudo Container_ID=`docker ps | grep "sanketar/insure-me:1.0" | awk '{print $1}'`
-    become : yes
-    become_user : root
-   
-  - name : Removing running container
-    command  : sudo echo $Container_ID
-    become : yes
-    become_user : root
-    
-  - name : Removing running container
-    command  : sudo docker stop $Container_ID
-    become : yes
-    become_user : root
-    
-  - name : Removing running container
-    command  : sudo docker rm $Container_ID
-    become : yes
-    become_user : root
-    
+        
   - name: Deploy Docker Container
     command: docker run -itd -p 8084:8082 sanketar/insure-me:1.0
