@@ -2,8 +2,8 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
+      source = "hashicorp/aws"
+      version = "= 3.74.2"
     }
   }
   required_version = ">= 1.2.0"
@@ -12,9 +12,6 @@ terraform {
 # Configure the AWS provider
 provider "aws" {
   region = "ap-south-1"
-  assume_role {
-    role_arn = "<redacted>"
-  }
 }
 # Creating a VPC
 resource "aws_vpc" "proj-vpc" {
