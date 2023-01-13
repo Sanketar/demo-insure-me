@@ -129,6 +129,7 @@ resource "aws_instance" "project-instance" {
  sudo apt install docker.io -y
  sudo systemctl enable docker
  sudo docker run -p 8084:8082 -d sanketar/insure-me:1.0
+ sudo docker run -p 9090:9090 prom/prometheus
  EOF
  tags = {
  Name = "project-instance"
