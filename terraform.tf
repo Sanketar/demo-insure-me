@@ -12,6 +12,9 @@ terraform {
 # Configure the AWS provider
 provider "aws" {
   region = "ap-south-1"
+  assume_role {
+    role_arn = "<redacted>"
+  }
 }
 # Creating a VPC
 resource "aws_vpc" "proj-vpc" {
