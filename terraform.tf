@@ -78,22 +78,6 @@ resource "aws_security_group" "proj-sg" {
  cidr_blocks = ["0.0.0.0/0"]
  }
  ingress {
- description = "Allow port 9090 inbound"
- from_port   = 9090
- to_port     = 9090
- protocol    = "tcp"
- cidr_blocks = ["0.0.0.0/0"]
-  }
-
- ingress {
- description = "Allow port 3000 inbound"
- from_port   = 3000
- to_port     = 3000
- protocol    = "tcp"
- cidr_blocks = ["0.0.0.0/0"]
-  }
-
- ingress {
  description = "Allow port 80 inbound"
  from_port   = 80
  to_port     = 80
@@ -128,7 +112,7 @@ resource "aws_eip" "proj-eip" {
 
 # Creating an ubuntu EC2 instance
 resource "aws_instance" "project-instance" {
- ami = "ami-03d3eec31be6ef6f9"
+ ami = "ami-0ef82eeba2c7a0eeb"
  instance_type = "t2.micro"
  availability_zone = "ap-south-1b"
  key_name = "latest-key"
@@ -144,7 +128,7 @@ resource "aws_instance" "project-instance" {
  sudo systemctl enable nginx
  sudo apt install docker.io -y
  sudo systemctl enable docker
- sudo docker run -p 8084:8082 -d sanketar/insure-me:1.0 
+ sudo docker run -p 8084:8082 -d sanketar/insure-me:1.0
  EOF
  tags = {
  Name = "project-instance"
